@@ -7,16 +7,20 @@
 #define STAR_MATERIAL       '*'
 
 /*define colours*/
-#define BLACK   0
-#define BLUE    1
-#define GREEN   2
-#define RED     4
-#define WHITE   7
+#define BLACK   COLOR_BLACK
+#define BLUE    COLOR_BLUE
+#define GREEN   COLOR_GREEN
+#define RED     COLOR_RED
+#define WHITE   COLOR_WHITE
+
+/*define pairs*/
+#define BACKGROUND 1
 
 int main() {
     initscr();
     start_color();
-    init_pair(BLUE, GREEN, WHITE);
+    init_pair(BACKGROUND, GREEN, WHITE);
+    wbkgd(stdscr, BACKGROUND);
     printw("Hello World");
     refresh();
     getch();
