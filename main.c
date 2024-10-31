@@ -16,14 +16,24 @@
 /*define pairs*/
 #define BACKGROUND 1
 
+bool running = true;
+
+int cursory;
+int cursorx;
+
 int main() {
     initscr();
     start_color();
-    init_pair(BACKGROUND, GREEN, WHITE);
-    wbkgd(stdscr, BACKGROUND);
-    printw("Hello World");
-    refresh();
-    getch();
+    init_pair(BACKGROUND, COLOR_BLACK, COLOR_WHITE);
+    wbkgd(stdscr, COLOR_PAIR(1));
+    printw("Hello, welcome to ncurses-draw!");
+    while (running == true); {
+        getyx(stdscr, cursory, cursorx);
+        wbkgd(stdscr, COLOR_PAIR(1));
+        printw("%d, %d", cursory, cursorx);
+        refresh();
+        getch();
+    }
     endwin();
 
     return 0;
